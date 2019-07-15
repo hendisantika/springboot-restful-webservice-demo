@@ -26,4 +26,8 @@ public class ValidationErrorResponse extends ExceptionErrorResponse {
         errors = new ArrayList<>();
     }
 
+    public void addError(ModelError error) {
+        this.errors.add(error);
+    }
+
 }

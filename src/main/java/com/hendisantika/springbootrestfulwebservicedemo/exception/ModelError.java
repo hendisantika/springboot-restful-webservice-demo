@@ -1,5 +1,6 @@
 package com.hendisantika.springbootrestfulwebservicedemo.exception;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -12,6 +13,7 @@ import lombok.Data;
  * Time: 05:55
  */
 @Data
+@AllArgsConstructor
 public class ModelError {
     private String message;
     private String errorField;
