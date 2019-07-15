@@ -3,6 +3,7 @@ package com.hendisantika.springbootrestfulwebservicedemo.service;
 import com.hendisantika.springbootrestfulwebservicedemo.model.Person;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,7 +18,7 @@ public interface PersonService {
 
     List<Person> getAllPerson();
 
-    Person getPersonById(long id);
+    Optional<Person> getPersonById(long id);
 
     Person savePerson(Person person);
 
