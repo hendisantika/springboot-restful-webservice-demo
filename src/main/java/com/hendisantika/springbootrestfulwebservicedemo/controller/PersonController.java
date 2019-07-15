@@ -76,4 +76,16 @@ public class PersonController {
         return new ResponseEntity<Person>(tempPerson, HttpStatus.CREATED);
     }
 
+    @PutMapping("addPerson")
+    public ResponseEntity<Person> updatePerson(
+            @ApiParam(value = "Request Body for Person", required = true) @Validated @RequestBody Person person)
+            throws CustomException {
+        Person tempPerson = personService.getPersonById(person.getId()).get();
+        if (tempPerson == null) {
+            throw new CustomException("Person with provided id:" + person.getId() + "cannot be updated");
+        }
+        logger.info("Person with provided id" + tempPerson.getId() + " updated");
+        return new ResponseEntity<Person>(personService.savePerson(person), HttpStatus.OK);
+    }
+
 }
