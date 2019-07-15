@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -65,6 +66,14 @@ public class PersonController {
         logger.info("Person deleted successfully");
         Response response = new Response(HttpStatus.OK.value(), "Person has been deleted");
         return new ResponseEntity<Response>(response, HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("addPerson")
+    public ResponseEntity<Person> addPerson(
+            @ApiParam(value = "Request Body for Person", required = true) @Validated @RequestBody Person person) {
+        Person tempPerson = personService.savePerson(person);
+        logger.info("Person added in the database");
+        return new ResponseEntity<Person>(tempPerson, HttpStatus.CREATED);
     }
 
 }
