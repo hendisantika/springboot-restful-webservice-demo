@@ -1,6 +1,7 @@
 package com.hendisantika.springbootrestfulwebservicedemo.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -17,6 +18,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Person {
     @Id
     @GeneratedValue
