@@ -8,7 +8,7 @@
 
 ## Screen shot
 
-**Get All Persons **   
+**Get All Persons**   
 
 ![Get All Persons](img/getAllPerson.png "Get All Persons")
 
